@@ -201,7 +201,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: server
-          image: gcr.io/poc-user-cluster/frontend:latest
+          image: gcr.io/lkdp-312905/frontend:latest
           ports:
           - containerPort: 8080
           readinessProbe:
