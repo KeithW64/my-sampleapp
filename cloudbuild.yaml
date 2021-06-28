@@ -26,16 +26,8 @@ steps:
   - prepare
   - --filename=kubernetes-manifests/
   - --image=gcr.io/$PROJECT_ID/frontend:$SHORT_SHA
+  - --location=australia-southeast1
+  - --cluster=_CLUSTER_NAME_
+  
 
-## Deploy microservices-demo app to anthos on prem cluster
-
-- name: 'gcr.io/cloud-builders/gcloud'
-  entrypoint: /bin/sh
-  id: "Deploy to Anthos cluster on VMware"
-  args:
-  - '-c'
-  - |
-    set -x && \
-    export KUBECONFIG="$(pwd)/gateway-kubeconfig" && \
-    gcloud beta container hub memberships get-credentials ${_CLUSTER_NAME_} && \
-    kubectl --kubeconfig=gateway-kubeconfig apply -f output/expanded
+   
