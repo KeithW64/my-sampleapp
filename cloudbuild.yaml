@@ -35,7 +35,7 @@ steps:
   - '-c'
   - |
     set -x && \
-    gcloud container clusters get-credentials ${_CLUSTER_NAME_} --project lkdp-312905 --zone australia-southeast1 && \
+    gcloud container clusters get-credentials ${_CLUSTER_NAME_} --project lkdp-312905 --region australia-southeast1 && \
     kubectl apply -f output/expanded
 
    
