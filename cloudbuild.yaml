@@ -26,7 +26,7 @@ steps:
   - prepare
   - --filename=kubernetes-manifests/
   - --image=gcr.io/$PROJECT_ID/frontend:$SHORT_SHA
-  - --location=australia-southeast1
+  - --region=australia-southeast1
   - --cluster=_CLUSTER_NAME_
   
 
