@@ -23,10 +23,10 @@ steps:
 - name: "gcr.io/cloud-builders/gke-deploy"
   id: "Prepare Manifests"
   args:
-  - prepare
+  - run
   - --filename=kubernetes-manifests/
   - --image=gcr.io/$PROJECT_ID/frontend:$SHORT_SHA
-  - --location=australia-southeast1
+- --location=australia-southeast1
   - --cluster=_CLUSTER_NAME_
   
 
