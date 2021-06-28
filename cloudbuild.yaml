@@ -26,8 +26,16 @@ steps:
   - prepare
   - --filename=kubernetes-manifests/
   - --image=gcr.io/$PROJECT_ID/frontend:$SHORT_SHA
-  - --region=australia-southeast1
-  - --cluster=_CLUSTER_NAME_
-  
+  ## Deploy microservices-demo app to anthos on prem cluster
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: /bin/sh
+  id: "Deploy to Anthos cluster on VMware"
+  args:
+  - '-c'
+  - |
+    set -x && \
+    gcloud container clusters get-credentials ${_CLUSTER_NAME_} --project lkdp-312905 --zone australia-southeast1 && \
+    kubectl apply -f output/expanded
 
    
